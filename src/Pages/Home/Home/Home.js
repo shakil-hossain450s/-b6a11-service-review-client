@@ -7,8 +7,8 @@ import Services from '../Services/Services';
 const Home = () => {
     return (
         <section>
-            <div className="hero flex justify-between items-center gap-5 mt-12 mb-40 h-[70vh]">
-                <div className="text-center">
+            <div className="hero flex justify-between gap-5 mt-12 mb-40 h-[70vh]">
+                <div className="text-start">
                     <div className="my-28">
                         <h1 className="text-4xl font-bold">Welcome To My Home Food</h1>
                         <p className="py-6">

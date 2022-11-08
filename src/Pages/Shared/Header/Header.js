@@ -8,7 +8,7 @@ import logo from "../../../assets/logo.png"
 const Header = () => {
     const menuItems = <>
         <li className='font-semibold mr-3'>
-            <Link>
+            <Link to="/">
                 <FaHome></FaHome>
                 <span>Home</span>
             </Link>
@@ -32,11 +32,11 @@ const Header = () => {
             </Link>
         </li>
         <li>
-            <button
+            <Link to="/login"
                 className='btn px-8 py-3 text-gray-100 border-2 bg-blue-500 border-blue-500 hover:bg-transparent hover:text-gray-900 hover:border-gray-900'>
-                <span>Login</span>
-                <BiLogIn className='text-xl'></BiLogIn>
-            </button>
+                    <span>Login</span>
+                    <BiLogIn className='text-xl'></BiLogIn>
+            </Link>
         </li>
     </>
     return (
