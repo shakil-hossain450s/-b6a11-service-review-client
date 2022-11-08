@@ -1,0 +1,78 @@
+[
+    {
+        "question": "Difference between SQL and NoSQL",
+        "description": "When it comes to choosing a database the biggest decisions is picking a relational (SQL) or non-relational (NoSQL) data structure. While both the databases are viable options still there are certain key differences between the two that users must keep in mind when making a decision. ",
+        "ans": [
+            {
+                "SQL": [
+                    "RELATIONAL DATABASE MANAGEMENT SYSTEM (RDBMS)",
+                    "These databases have fixed or static or predefined schema",
+                    "These databases are not suited for hierarchical data storage.",
+                    "These databases are best suited for complex queries",
+                    "Vertically Scalable",
+                    "Follows ACID property",
+                    {
+                        "examples": [
+                            "MySQL",
+                            " PostgreSQL",
+                            "Oracle",
+                            "MS-SQL Server etc"
+                        ]
+                    }
+                ]
+            },
+            {
+                "NoSQL": [
+                    "Non-relational or distributed database system.",
+                    "They have dynamic schema",
+                    "These databases are best suited for hierarchical data storage.",
+                    "These databases are not so good for complex queries",
+                    "Horizontally scalable",
+                    "Follows CAP(consistency, availability, partition tolerance)",
+                    {
+                        "examples": [
+                            "MongoDB",
+                            "GraphQL",
+                            "HBase",
+                            "Neo4j",
+                            "Cassandra etc"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "question": "What is JWT, and how does it work?",
+        "ans": "A JSON web token(JWT) is JSON Object which is used to securely transfer information over the web(between two parties). It can be used for an authentication system and can also be used for information exchange.The token is mainly composed of header, payload, signature. These three parts are separated by dots(.). JWT defines the structure of information we are sending from one party to the another, and it comes in two forms – Serialized, Deserialized. The Serialized approach is mainly used to transfer the data through the network with each request and response. While the deserialized approach is used to read and write data to the web token."
+    },
+    {
+        "question": "What is the difference between javascript and NodeJS?",
+        "ans": [
+            {
+                "nodeJS": "NodeJS is a cross-platform and opensource Javascript runtime environment that allows the javascript to be run on the server-side. Nodejs allows Javascript code to run outside the browser. Nodejs comes with a lot of modules and mostly used in web development.",
+                "differences": [
+                    "NodeJS is a Javascript runtime environment.",
+                    "We can run Javascript outside the browser with the help of NodeJS.",
+                    "It is mostly used on the server-side.",
+                    "Nodejs does not have capability to add HTML tags.",
+                    "V8 is the Javascript engine inside of node.js that parses and runs Javascript. "
+                ]
+            },
+            {
+                "javascript": "Javascript is a Scripting language. It is mostly abbreviated as JS. It can be said that Javascript is the updated version of the ECMA script. Javascript is a high-level programming language that uses the concept of Oops but it is based on prototype inheritance.",
+                "differences": [
+                    "Javascript is a programming language that is used for writing scripts on the website. ",
+                    "Javascript can only be run in the browsers.",
+                    "It is basically used on the client-side.",
+                    "Javascript is capable enough to add HTML and play with the DOM.",
+                    "Javascript can run in any browser engine as like JS core in safari and Spidermonkey in Firefox. "
+                ]
+            }
+        ]
+    },
+    {
+        "question": "How does NodeJS handle multiple requests at the same time?",
+        "ans": "NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them. EventLoop is the listener for the EventQueue.If NodeJS can process the request without I/O blocking then the event loop would itself process the request and sends the response back to the client by itself. But, it is possible to process multiple requests paralaelly using the NodeJS cluster module or worker_threads module."
+    }
+]
