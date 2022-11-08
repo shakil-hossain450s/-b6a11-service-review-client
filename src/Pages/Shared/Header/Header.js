@@ -2,12 +2,19 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaHome, FaBloggerB, FaInfo } from "react-icons/fa";
 import { GrServices } from "react-icons/gr";
-import { BiLogIn } from "react-icons/bi";
+import { BiLogIn, BiLogOut } from "react-icons/bi";
 import logo from "../../../assets/logo.png"
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut();
+        toast.success("logout success");
+    }
+
     const menuItems = <>
         <li className='font-semibold mr-3'>
             <Link to="/">
@@ -33,13 +40,27 @@ const Header = () => {
                 <span>About</span>
             </Link>
         </li>
-        <li>
-            <Link to="/login"
-                className='btn px-8 py-3 text-gray-100 border-2 bg-blue-500 border-blue-500 hover:bg-transparent hover:text-gray-900 hover:border-gray-900'>
-                <span>Login</span>
-                <BiLogIn className='text-xl'></BiLogIn>
-            </Link>
-        </li>
+        {
+            user ?
+                <>
+                    <li>
+                        <button onClick={handleLogout}
+                            className='btn px-4 py-2 text-gray-100 border-2 bg-blue-500 border-blue-500 hover:bg-transparent hover:text-gray-900 hover:border-gray-900'>
+                            <span>Logout</span>
+                            <BiLogOut className='text-xl'></BiLogOut>
+                        </button>
+                    </li>
+                </>
+                :
+                <li>
+                    <Link to="/login"
+                        className='btn px-8 py-3 text-gray-100 border-2 bg-blue-500 border-blue-500 hover:bg-transparent hover:text-gray-900 hover:border-gray-900'>
+                        <span>Login</span>
+                        <BiLogIn className='text-xl'></BiLogIn>
+                    </Link>
+                </li>
+        }
+
     </>
     return (
         <div className="navbar bg-base-100 shadow-md px-5 py-3">

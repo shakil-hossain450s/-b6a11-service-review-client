@@ -1,12 +1,16 @@
 import React, { useContext } from 'react';
 import loginImage from "../../../assets/login/login.jpg";
 import { FaUserAlt, FaLock, FaUserCircle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || "/";
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -23,6 +27,7 @@ const Login = () => {
                 form.reset();
                 toast.success("User Login Successfully");
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(err => {
                 console.log(err);
