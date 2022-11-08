@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import loginImage from "../../../assets/login/login.jpg";
 import { FaUserAlt, FaLock, FaUserCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
+    const { signIn } = useContext(AuthContext);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(email, password)
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                form.reset();
+                toast.success("User Login Successfully");
+                console.log(user);
+            })
+            .catch(err => {
+                console.log(err);
+                toast.error(err.message)
+            })
+    }
+
     return (
         <div className="hero mb-12">
             <div className="hero-content flex-col lg:flex-row gap-20 ">
@@ -18,12 +44,13 @@ const Login = () => {
                         className='text-gray-700 text-3xl font-semibold text-center'>Login
                     </h2>
                     {/* <hr className='mt-2 w-3/4 border border-gray-300 mx-auto' /> */}
-                    <div className="card-body">
+                    <form onSubmit={handleSubmit} className="card-body">
                         <div className="form-control mb-5">
                             <label className="input-group">
                                 <span><FaUserAlt></FaUserAlt></span>
                                 <input
                                     type="email"
+                                    name='email'
                                     placeholder="enter email"
                                     className="input border border-gray-300"
                                     required />
@@ -34,6 +61,7 @@ const Login = () => {
                                 <span><FaLock></FaLock></span>
                                 <input
                                     type="password"
+                                    name="password"
                                     placeholder="password"
                                     className="input border border-gray-300"
                                     required />
@@ -53,7 +81,7 @@ const Login = () => {
                                 <span>Login</span>
                             </button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

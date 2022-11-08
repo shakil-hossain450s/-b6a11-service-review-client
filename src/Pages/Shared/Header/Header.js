@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaHome, FaBloggerB, FaInfo } from "react-icons/fa";
 import { GrServices } from "react-icons/gr";
 import { BiLogIn } from "react-icons/bi";
 import logo from "../../../assets/logo.png"
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user } = useContext(AuthContext);
     const menuItems = <>
         <li className='font-semibold mr-3'>
             <Link to="/">
@@ -34,8 +36,8 @@ const Header = () => {
         <li>
             <Link to="/login"
                 className='btn px-8 py-3 text-gray-100 border-2 bg-blue-500 border-blue-500 hover:bg-transparent hover:text-gray-900 hover:border-gray-900'>
-                    <span>Login</span>
-                    <BiLogIn className='text-xl'></BiLogIn>
+                <span>Login</span>
+                <BiLogIn className='text-xl'></BiLogIn>
             </Link>
         </li>
     </>
