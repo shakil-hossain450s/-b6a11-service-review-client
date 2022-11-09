@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaStar } from 'react-icons/fa';
 
 const HomeFoodCard = ({ food }) => {
 
@@ -11,6 +12,20 @@ const HomeFoodCard = ({ food }) => {
             </figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
+                <p className='flex items-center justify-between gap-1 my-3'>
+                    <div>
+                        Price: ${price}
+                    </div>
+                    <div className='flex items-center text-orange-500 gap-1'>
+                        <span><FaStar></FaStar></span>
+                        <span><FaStar></FaStar></span>
+                        <span><FaStar></FaStar></span>
+                        <span><FaStar></FaStar></span>
+                        <span><FaStar></FaStar></span>
+                        :
+                        <span className='font-medium'>{rating}</span>
+                    </div>
+                </p>
                 <p>{description.length > 20 ? description.slice(0, 50) + "..." : description}</p>
                 <div className="card-actions">
                     <button
