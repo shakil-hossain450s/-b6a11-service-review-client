@@ -1,15 +1,16 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const ServicesCard = ({ service }) => {
 
-    const { name, image, description, price, rating } = service;
+    const { _id, name, image, description, price, rating } = service;
 
     return (
         <div>
             <div className="card w-10/12 border-2 mx-auto bg-base-200 shadow-xl my-12">
                 <figure className="px-3 pt-3">
-                    <img src={image} alt="Shoes" className="rounded-md lg:h-80 h-52 w-full object-cover border" />
+                    <img src={image} alt="Shoes" className="rounded-md lg:h-96 h-52 w-full object-cover border" />
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
@@ -29,10 +30,12 @@ const ServicesCard = ({ service }) => {
                     </p>
                     <p>{description.length > 100 ? description.slice(0, 100) + "..." : description}</p>
                     <div className="card-actions mt-5">
-                        <button
-                            className='btn bg-blue-600 px-8 py-2 border-2 border-blue-600 hover:bg-transparent hover:text-blue-600 hover:border-blue-600 '>
-                            Details
-                        </button>
+                        <Link to={`/services/${_id}`}>
+                            <button
+                                className='btn bg-blue-600 px-8 py-2 border-2 border-blue-600 hover:bg-transparent hover:text-blue-600 hover:border-blue-600 '>
+                                Details
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

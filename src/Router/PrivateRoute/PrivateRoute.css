@@ -1,0 +1,22 @@
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 8px solid gray;
+    border-radius: 50%;
+    border-top: 8px solid rgb(9, 157, 206);
+    width: 70px;
+    height: 70px;
+    animation: spinner 1s linear infinite;
+}   
