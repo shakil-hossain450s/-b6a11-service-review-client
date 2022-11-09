@@ -5,7 +5,7 @@ const BlogCard = ({ blogQuestion }) => {
     // console.log(ans)
     return (
         <div className='my-12'>
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+            <div tabIndex={0} className="collapse collapse-arrow border-2 border-base-500 bg-base-100 rounded-box">
                 <div className="collapse-title text-xl font-medium">
                     {blogQuestion?.question}
                 </div>

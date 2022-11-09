@@ -2,7 +2,7 @@ import React from 'react';
 import img1 from "../../../assets/HomeImage/home1.jpeg";
 import img2 from "../../../assets/HomeImage/home2.jpeg";
 import img3 from "../../../assets/HomeImage/home3.jpeg";
-import Services from '../Services/Services';
+import HomeServices from '../HomeServices/HomeServices';
 
 const Home = () => {
     return (
@@ -33,7 +33,7 @@ const Home = () => {
                 </div>
             </div>
             <div className='mt-16'>
-                <Services></Services>
+                <HomeServices></HomeServices>
             </div>
         </section>
     );
