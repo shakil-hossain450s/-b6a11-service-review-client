@@ -23,7 +23,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: "/services/:id",
-                element: <PrivateRoute><ServiceCardDetails></ServiceCardDetails></PrivateRoute>,
+                element: <ServiceCardDetails></ServiceCardDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             },
             {

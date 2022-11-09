@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaArrowCircleLeft, FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import Reviews from './Reviews/Reviews';
 
 const ServiceCardDetails = () => {
     const foodDetails = useLoaderData();
@@ -32,7 +33,11 @@ const ServiceCardDetails = () => {
                     <p>{description}</p>
                 </div>
             </div>
+            <div>
+                <Reviews></Reviews>
+            </div>
         </section>
+        
     );
 };
 
