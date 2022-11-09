@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ServicesCard from './ServicesCard';
 
-const Services = ({ food }) => {
+const Services = () => {
 
     const [services, setServices] = useState([]);
     useEffect(() => {

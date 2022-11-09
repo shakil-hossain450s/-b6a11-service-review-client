@@ -1,45 +1,55 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
-const ReviewForm = () => {
+const ReviewForm = ({ foodDetails }) => {
 
-    const handleToSubmit = (event) => {
+    const { user } = useContext(AuthContext);
+    console.log(foodDetails)
+
+    const handlePlaceReview = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const email = form.email.value;
-        const photoUrl = form.photoUrl.value;
+        const email = user?.email || "please register";
+        const photoURL = form.photoUrl.value;
         const message = form.message.value;
 
-        console.log(name, email, photoUrl, message);
-
-        const reviewData = {
-            userName: name,
-            userEmail: email,
-            userPhoto: photoUrl,
-            userMessage: message
+        const review = {
+            foodId: foodDetails._id,
+            foodName: foodDetails.name,
+            price: foodDetails.price,
+            name: name,
+            email: email,
+            photoURL: photoURL,
+            message: message,
         }
 
-        fetch('http://localhost:5000/userReview', {
+        fetch("http://localhost:5000/reviews", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(reviewData)
+            body: JSON.stringify(review)
         })
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    toast.success("review accepted");
+                    toast.success("Review Added Successfully");
                     form.reset();
                 }
+                console.log(data)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err);
+                toast.error(err.message);
+            })
+
     }
 
     return (
         <div>
-            <form onSubmit={handleToSubmit}>
+            <form onSubmit={handlePlaceReview}>
                 <h3 className='text-2xl font-semibold text-center my-3'>Leave a Review</h3>
                 <div className="form-control mb-5">
                     <input
@@ -62,6 +72,8 @@ const ReviewForm = () => {
                         type="text"
                         name='email'
                         placeholder="email"
+                        defaultValue={user?.email}
+                        readOnly
                         className="input border border-gray-300 "
                         required />
                 </div>

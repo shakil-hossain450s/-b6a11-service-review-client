@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaHome, FaBloggerB, FaInfo, FaPlusCircle } from "react-icons/fa";
 import { GrServices } from "react-icons/gr";
 import { BiLogIn, BiLogOut } from "react-icons/bi";
+import { MdExpandMore } from "react-icons/md";
 import logo from "../../../assets/logo.png"
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
@@ -37,18 +38,30 @@ const Header = () => {
         {
             user ?
                 <>
-                    <li className='font-semibold'>
-                        <Link>
-                            <FaInfo></FaInfo>
-                            <span>My Review</span>
-                        </Link>
-                    </li>
-                    <li className='font-semibold'>
-                        <Link>
-                            <FaPlusCircle></FaPlusCircle>
-                            <span>Add Service</span>
-                        </Link>
-                    </li>
+                    <div className="dropdown dropdown-hover mr-1">
+                        <label tabIndex={0}>
+                            <li className='font-semibold'>
+                                <Link>
+                                    <span>More</span>
+                                    <MdExpandMore className='text-xl ml-0'></MdExpandMore>
+                                </Link>
+                            </li>
+                        </label>
+                        <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                            <li className='font-semibold'>
+                                <Link>
+                                    <FaInfo></FaInfo>
+                                    <span>My Review</span>
+                                </Link>
+                            </li>
+                            <li className='font-semibold'>
+                                <Link>
+                                    <FaPlusCircle></FaPlusCircle>
+                                    <span>Add Service</span>
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
                     <li>
                         <button onClick={handleLogout}
                             className='btn px-4 py-2 text-gray-100 border-2 bg-blue-500 border-blue-500 hover:bg-transparent hover:text-gray-900 hover:border-gray-900'>
@@ -84,7 +97,7 @@ const Header = () => {
                     <span className='text-xl font-medium'>Home Food</span>
                 </Link>
             </div>
-            <div className="hidden lg:flex">
+            <div className="hidden lg:flex navbar-end">
                 <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
