@@ -1,14 +1,17 @@
 import React, { useContext } from 'react';
 import loginImage from "../../../assets/login/login.jpg";
-import { FaUserAlt, FaLock, FaUserCircle } from "react-icons/fa";
+import { FaUserAlt, FaLock, FaUserCircle, FaGoogle, FaGithub } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, providerLogin } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+
+    const googleProvider = new GoogleAuthProvider();
 
     const from = location.state?.from?.pathname || "/";
 
@@ -27,6 +30,20 @@ const Login = () => {
                 form.reset();
                 toast.success("User Login Successfully");
                 console.log(user);
+                navigate(from, { replace: true });
+            })
+            .catch(err => {
+                console.log(err);
+                toast.error(err.message)
+            })
+    };
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                toast.success("User Login Successfully");
                 navigate(from, { replace: true });
             })
             .catch(err => {
@@ -84,6 +101,13 @@ const Login = () => {
                             <button
                                 className='btn px-8 py-3 text-gray-100 border-2 bg-blue-500 border-blue-500 hover:bg-transparent hover:text-gray-900 hover:border-gray-900'>
                                 <span>Login</span>
+                            </button>
+                        </div>
+                        <div className='flex items-center justify-center gap-8 mt-5'>
+                            <button
+                                onClick={handleGoogleSignIn}
+                                className='border-2 border-gray-300 hover:bg-gray-300 duration-200 ease-out p-4 rounded-full'>
+                                <FaGoogle></FaGoogle>
                             </button>
                         </div>
                     </form>

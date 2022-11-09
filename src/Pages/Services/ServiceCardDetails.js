@@ -34,7 +34,7 @@ const ServiceCardDetails = () => {
                 </div>
             </div>
             <div>
-                <Reviews></Reviews>
+                <Reviews name={name}></Reviews>
             </div>
         </section>
         

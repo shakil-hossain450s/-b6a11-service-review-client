@@ -70,7 +70,8 @@ const ReviewForm = () => {
                 </div>
                 <div className='flex justify-center'>
                     <button
-                        className='btn w-9/12 px-8 py-2 bg-blue-600 border-2 border-blue-600 hover:bg-transparent hover:border-blue-600 hover:text-blue-600' type="submit">Post</button>
+                        type="submit"
+                        className='btn w-9/12 px-8 py-2 bg-blue-600 border-2 border-blue-600 hover:bg-transparent hover:border-blue-600 hover:text-blue-600' >Post</button>
                 </div>
             </form>
         </div>

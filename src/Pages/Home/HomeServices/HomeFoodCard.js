@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const HomeFoodCard = ({ food }) => {
 
-    const { name, image, description, price, rating } = food;
+    const { _id, name, image, description, price, rating } = food;
 
     return (
         <div className="card w-10/12 border-2 mx-auto bg-base-200 shadow-xl">
@@ -28,10 +29,12 @@ const HomeFoodCard = ({ food }) => {
                 </p>
                 <p>{description.length > 20 ? description.slice(0, 50) + "..." : description}</p>
                 <div className="card-actions">
-                    <button
-                        className='btn bg-blue-600 px-8 py-2 border-2 border-blue-600 hover:bg-transparent hover:text-blue-600 hover:border-blue-600 '>
-                        Details
-                    </button>
+                    <Link to={`/services/${_id}`}>
+                        <button
+                            className='btn bg-blue-600 px-8 py-2 border-2 border-blue-600 hover:bg-transparent hover:text-blue-600 hover:border-blue-600 '>
+                            Details
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

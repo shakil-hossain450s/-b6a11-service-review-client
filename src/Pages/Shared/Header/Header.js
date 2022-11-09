@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { FaHome, FaBloggerB, FaInfo } from "react-icons/fa";
+import { FaHome, FaBloggerB, FaInfo, FaPlusCircle } from "react-icons/fa";
 import { GrServices } from "react-icons/gr";
 import { BiLogIn, BiLogOut } from "react-icons/bi";
 import logo from "../../../assets/logo.png"
@@ -16,33 +16,39 @@ const Header = () => {
     }
 
     const menuItems = <>
-        <li className='font-semibold mr-3'>
+        <li className='font-semibold'>
             <Link to="/">
                 <FaHome></FaHome>
                 <span>Home</span>
             </Link>
         </li>
-        <li className='font-semibold mr-3'>
+        <li className='font-semibold'>
             <Link to='/services'>
                 <GrServices></GrServices>
                 <span>Services</span>
             </Link>
         </li>
-        <li className='font-semibold mr-3'>
+        <li className='font-semibold'>
             <Link to="/blog">
                 <FaBloggerB></FaBloggerB>
                 <span>Blog</span>
             </Link>
         </li>
-        <li className='font-semibold mr-3'>
-            <Link>
-                <FaInfo></FaInfo>
-                <span>About</span>
-            </Link>
-        </li>
         {
             user ?
                 <>
+                    <li className='font-semibold'>
+                        <Link>
+                            <FaInfo></FaInfo>
+                            <span>My Review</span>
+                        </Link>
+                    </li>
+                    <li className='font-semibold'>
+                        <Link>
+                            <FaPlusCircle></FaPlusCircle>
+                            <span>Add Service</span>
+                        </Link>
+                    </li>
                     <li>
                         <button onClick={handleLogout}
                             className='btn px-4 py-2 text-gray-100 border-2 bg-blue-500 border-blue-500 hover:bg-transparent hover:text-gray-900 hover:border-gray-900'>
@@ -54,7 +60,7 @@ const Header = () => {
                 :
                 <li>
                     <Link to="/login"
-                        className='btn px-8 py-3 text-gray-100 border-2 bg-blue-500 border-blue-500 hover:bg-transparent hover:text-gray-900 hover:border-gray-900'>
+                        className='btn py-3 text-gray-100 border-2 bg-blue-500 border-blue-500 hover:bg-transparent hover:text-gray-900 hover:border-gray-900'>
                         <span>Login</span>
                         <BiLogIn className='text-xl'></BiLogIn>
                     </Link>
@@ -63,7 +69,7 @@ const Header = () => {
 
     </>
     return (
-        <div className="navbar bg-base-100 shadow-md px-5 py-3">
+        <div className="navbar bg-base-100 shadow-md py-3">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -78,7 +84,7 @@ const Header = () => {
                     <span className='text-xl font-medium'>Home Food</span>
                 </Link>
             </div>
-            <div className="navbar-end hidden lg:flex">
+            <div className="hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
