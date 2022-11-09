@@ -1,11 +1,40 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const ReviewForm = () => {
 
-    const handleToSubmit = (event) => { 
+    const handleToSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
-        
+        const name = form.name.value;
+        const email = form.email.value;
+        const photoUrl = form.photoUrl.value;
+        const message = form.message.value;
+
+        console.log(name, email, photoUrl, message);
+
+        const reviewData = {
+            userName: name,
+            userEmail: email,
+            userPhoto: photoUrl,
+            userMessage: message
+        }
+
+        fetch('http://localhost:5000/userReview', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(reviewData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success("review accepted");
+                    form.reset();
+                }
+            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -36,8 +65,8 @@ const ReviewForm = () => {
                         className="input border border-gray-300 "
                         required />
                 </div>
-                <div className="form-control mb-5 border-2 border-gray-200 p-4 rounded">
-                    <textarea name="message" placeholder='your message' id="" cols="30" rows="10"></textarea>
+                <div className="form-control mb-5 border-2 border-gray-200 rounded">
+                    <textarea name="message" className='p-4' placeholder='your message' id="" cols="30" rows="10"></textarea>
                 </div>
                 <div className='flex justify-center'>
                     <button
