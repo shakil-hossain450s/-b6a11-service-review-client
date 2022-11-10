@@ -5,7 +5,7 @@ import HomeFoodCard from './HomeFoodCard';
 const HomeServices = () => {
     const [foodHome, setFoodHome] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/food-home')
+        fetch('https://service-review-server-eta.vercel.app/food-home')
             .then(res => res.json())
             .then(data => setFoodHome(data))
     }, [])
