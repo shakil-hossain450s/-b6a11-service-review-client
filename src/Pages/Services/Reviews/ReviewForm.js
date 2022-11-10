@@ -11,7 +11,7 @@ const ReviewForm = ({ foodDetails }) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const email = user?.email || "please register";
+        const email = form.email.value;
         const photoURL = form.photoUrl.value;
         const message = form.message.value;
 
@@ -72,13 +72,11 @@ const ReviewForm = ({ foodDetails }) => {
                         type="text"
                         name='email'
                         placeholder="email"
-                        defaultValue={user?.email}
-                        readOnly
                         className="input border border-gray-300 "
                         required />
                 </div>
                 <div className="form-control mb-5 border-2 border-gray-200 rounded">
-                    <textarea name="message" className='p-4' placeholder='your message' id="" cols="30" rows="10"></textarea>
+                    <textarea name="message" className='p-4' placeholder='your message' id="" cols="10" rows="4"></textarea>
                 </div>
                 <div className='flex justify-center'>
                     <button

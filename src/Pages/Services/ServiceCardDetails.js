@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FaArrowCircleLeft, FaStar } from 'react-icons/fa';
+import { FaArrowCircleLeft, FaArrowRight, FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import ReviewForm from './Reviews/ReviewForm';
@@ -9,7 +9,7 @@ const ServiceCardDetails = () => {
     const { user } = useContext(AuthContext);
 
     const foodDetails = useLoaderData();
-    const { name, price, image, rating, description } = foodDetails;
+    const { _id, name, price, image, rating, description } = foodDetails;
     return (
         <section>
             <Link to="/services" className='absolute top-[100px] left-12 text-2xl cursor-pointer'>
@@ -34,20 +34,26 @@ const ServiceCardDetails = () => {
                         <span className='font-medium'>{rating}</span>
                     </div>
                     <p>{description}</p>
+                    <Link to={`/reviews/${_id}`}>
+                        <button className='btn btn-outline w-2/12'>See Review
+                            <FaArrowRight className='ml-2'></FaArrowRight>
+                        </button>
+                    </Link>
                 </div>
             </div>
             <div className='bg-base-200 border-2 border-gray-300 p-8 w-10/12 mx-auto rounded-lg my-8'>
                 {
                     user ?
                         <ReviewForm foodDetails={foodDetails}></ReviewForm>
-                        : 
+                        :
                         <>
-                            <p className='font-bold text-2xl'>Please <Link className='hover:underline text-orange-500' to="/login">Login</Link> First To Send a Review</p>
+                            <p className='font-bold text-2xl'>Please <Link className='hover:underline text-orange-500' to="/login">Login</Link>  to add a review</p>
                         </>
                 }
             </div>
+
         </section>
-        
+
     );
 };
 
