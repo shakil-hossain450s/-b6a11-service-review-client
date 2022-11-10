@@ -1,17 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { FaArrowCircleLeft, FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import useSetTitles from '../../Hook/useSetTitels';
+import Review from '../Review/Review/Review';
 
 const ServiceCardDetails = () => {
-
-    const { user } = useContext(AuthContext);
 
     useSetTitles('Services Details')
 
     const foodDetails = useLoaderData();
-    const { _id, name, price, image, rating, description } = foodDetails;
+    const { name, price, image, rating, description } = foodDetails;
     return (
         <section>
             <Link to="/services" className='absolute top-[100px] left-12 text-2xl cursor-pointer'>
@@ -38,7 +36,9 @@ const ServiceCardDetails = () => {
                     <p>{description}</p>
                 </div>
             </div>
-
+            <div>
+                <Review foodDetails={foodDetails}></Review>
+            </div>
         </section>
 
     );

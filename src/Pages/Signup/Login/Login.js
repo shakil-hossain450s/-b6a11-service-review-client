@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import loginImage from "../../../assets/login/login.jpg";
-import { FaUserAlt, FaLock, FaUserCircle, FaGoogle, FaGithub } from "react-icons/fa";
+import { FaUserAlt, FaLock, FaUserCircle, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
