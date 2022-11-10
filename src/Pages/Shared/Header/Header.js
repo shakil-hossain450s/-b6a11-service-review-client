@@ -49,7 +49,7 @@ const Header = () => {
                         </label>
                         <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                             <li className='font-semibold'>
-                                <Link to='/my-reviews'>
+                                <Link to='/myReview'>
                                     <FaInfo></FaInfo>
                                     <span>My Review</span>
                                 </Link>
