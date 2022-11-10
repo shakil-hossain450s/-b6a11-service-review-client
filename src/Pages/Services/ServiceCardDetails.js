@@ -34,6 +34,11 @@ const ServiceCardDetails = () => {
                         <span className='font-medium'>{rating}</span>
                     </div>
                     <p>{description}</p>
+                    <div>
+                        <Link to='/allReviews'>
+                            <button className='btn btn-outline'>Show Review</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
             <div>

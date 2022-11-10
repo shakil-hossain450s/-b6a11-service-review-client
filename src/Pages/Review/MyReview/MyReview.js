@@ -33,11 +33,14 @@ const MyReview = () => {
     }
 
     return (
-        <div className='lg:mb-[280px] mt-5'>
+        <div className='lg:mb-[35%] mt-5 '>
             <h2 className='text-2xl font-semibold mb-2'>You Have {reviews.length} reviews</h2>
             {
                 reviews.length === 0 ?
-                    <p>You Have No Review To see Here</p>
+                    <p
+                        className='absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]'>
+                        <span className='text-3xl font-semibold'>You Have No Review To see Here</span>
+                    </p>
                     :
                     <>
                         {

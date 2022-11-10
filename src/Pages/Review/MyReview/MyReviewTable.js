@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import toast from 'react-hot-toast';
+import React from 'react';
 import { FaTrash } from "react-icons/fa";
 
 const MyReviewTable = ({ review, handleDelete }) => {

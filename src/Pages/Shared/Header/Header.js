@@ -47,7 +47,7 @@ const Header = () => {
                                 </Link>
                             </li>
                         </label>
-                        <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-44">
                             <li className='font-semibold'>
                                 <Link to='/myReview'>
                                     <FaInfo></FaInfo>
@@ -55,7 +55,7 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li className='font-semibold'>
-                                <Link>
+                                <Link to="/addService">
                                     <FaPlusCircle></FaPlusCircle>
                                     <span>Add Service</span>
                                 </Link>
