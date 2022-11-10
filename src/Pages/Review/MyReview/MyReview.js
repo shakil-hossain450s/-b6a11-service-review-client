@@ -34,7 +34,7 @@ const MyReview = () => {
 
     return (
         <div className='lg:mb-[35%] mt-5 '>
-            <h2 className='text-2xl font-semibold mb-2'>You Have {reviews.length} reviews</h2>
+            <h2 className='text-2xl font-semibold mb-2 ml-3'>You Have {reviews.length} reviews</h2>
             {
                 reviews.length === 0 ?
                     <p

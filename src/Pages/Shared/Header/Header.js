@@ -17,19 +17,19 @@ const Header = () => {
     }
 
     const menuItems = <>
-        <li className='font-semibold'>
+        <li className='lg:mb-0 mb-1 font-semibold'>
             <Link to="/">
                 <FaHome></FaHome>
                 <span>Home</span>
             </Link>
         </li>
-        <li className='font-semibold'>
+        <li className='lg:mb-0 mb-1 font-semibold'>
             <Link to='/services'>
                 <GrServices></GrServices>
                 <span>Services</span>
             </Link>
         </li>
-        <li className='font-semibold'>
+        <li className='lg:mb-0 mb-1 font-semibold'>
             <Link to="/blog">
                 <FaBloggerB></FaBloggerB>
                 <span>Blog</span>
@@ -38,9 +38,9 @@ const Header = () => {
         {
             user ?
                 <>
-                    <div className="dropdown dropdown-hover mr-1">
+                    <div className="dropdown lg:block hidden dropdown-hover mr-1">
                         <label tabIndex={0}>
-                            <li className='font-semibold'>
+                            <li className='lg:mb-0 mb-1 font-semibold'>
                                 <Link>
                                     <span>More</span>
                                     <MdExpandMore className='text-xl ml-0'></MdExpandMore>
@@ -48,19 +48,33 @@ const Header = () => {
                             </li>
                         </label>
                         <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-44">
-                            <li className='font-semibold'>
+                            <li className='lg:mb-0 mb-1 font-semibold'>
                                 <Link to='/myReview'>
                                     <FaInfo></FaInfo>
                                     <span>My Review</span>
                                 </Link>
                             </li>
-                            <li className='font-semibold'>
+                            <li className='lg:mb-0 mb-1 font-semibold'>
                                 <Link to="/addService">
                                     <FaPlusCircle></FaPlusCircle>
                                     <span>Add Service</span>
                                 </Link>
                             </li>
                         </ul>
+                    </div>
+                    <div className='lg:hidden'>
+                        <li className='lg:mb-0 mb-1 font-semibold'>
+                            <Link to='/myReview'>
+                                <FaInfo></FaInfo>
+                                <span>My Review</span>
+                            </Link>
+                        </li>
+                        <li className='lg:mb-0 mb-1 font-semibold'>
+                            <Link to="/addService">
+                                <FaPlusCircle></FaPlusCircle>
+                                <span>Add Service</span>
+                            </Link>
+                        </li>
                     </div>
                     <li>
                         <button onClick={handleLogout}

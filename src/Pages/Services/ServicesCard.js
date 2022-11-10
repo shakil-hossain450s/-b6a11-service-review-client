@@ -8,7 +8,7 @@ const ServicesCard = ({ service }) => {
 
     return (
         <div>
-            <div className="card border-2 mx-auto bg-base-200 shadow-xl my-12">
+            <div className="card border-2 mx-auto bg-base-200 shadow-xl lg:my-12 my-4">
                 <figure className="px-3 pt-3">
                     <img src={image} alt="Shoes" className="rounded-md lg:h-80 h-52 w-full object-cover border" />
                 </figure>
@@ -26,7 +26,7 @@ const ServicesCard = ({ service }) => {
                             <span><FaStar></FaStar></span>
                             :
                             <span className='font-medium'>{rating}</span>
-                        </div>=
+                        </div>
                     </p>
                     <p>{description.length > 100 ? description.slice(0, 100) + "..." : description}</p>
                     <div className="card-actions mt-5">

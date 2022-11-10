@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import img1 from "../../../assets/HomeImage/home1.jpeg";
 import img2 from "../../../assets/HomeImage/home2.jpeg";
 import img3 from "../../../assets/HomeImage/home3.jpeg";
@@ -16,7 +17,9 @@ const Home = () => {
                         <p className="py-6">
                             Thanks for coming my Home Food Website. Here You can get the food product which is made by my home. You can enjoy it very much.
                         </p>
-                        <button className="btn btn-primary">Learn More</button>
+                        <Link to='/services'>
+                            <button className="btn btn-primary">Learn More</button>
+                        </Link>
                     </div>
                 </div>
                 <div>
@@ -33,9 +36,6 @@ const Home = () => {
                             className='w-[40%] shadow-2xl border-dashed border-2 border-orange-400 rounded-md p-3 absolute top-[-120px] right-[50px]'>
                             <img className='rounded' src={img3} alt="" />
                         </div>
-                    </div>
-                    <div>
-
                     </div>
                 </div>
             </div>

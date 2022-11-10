@@ -13,7 +13,7 @@ const HomeServices = () => {
         <div className='mb-20'>
             <h2 className='text-center my-5 text-3xl font-semibold'>Food Services</h2>
             <div>
-                <h4 className='text-2xl font-semibold'><li>Foods</li></h4>
+                <h4 className='text-2xl font-semibold ml-5 my-5'><li>Foods</li></h4>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                     {
                         foodHome.map(food => <HomeFoodCard

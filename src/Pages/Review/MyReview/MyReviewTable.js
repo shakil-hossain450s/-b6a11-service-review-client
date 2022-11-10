@@ -6,8 +6,8 @@ const MyReviewTable = ({ review, handleDelete }) => {
 
     console.log(review)
     return (
-        <section>
-            <div className='border-2 bg-base-200 p-8 shadow-md rounded-lg relative'>
+        <section className='mx-2'>
+            <div className='border-2 bg-base-200 p-10 shadow-md rounded-lg relative'>
                 <button
                     onClick={() => handleDelete(_id)}
                     className='border-2 absolute right-4 top-4 hover:text-white border-gray-200 p-3 rounded-full hover:bg-red-500 duration-200 ease-out'>

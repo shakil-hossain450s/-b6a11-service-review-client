@@ -45,10 +45,10 @@ const AddService = () => {
     return (
         <div className='mb-[35%]'>
             <h2 className='text-2xl text-center mt-5 font-medium'>Add a New Service</h2>
-            <hr className='w-2/12 border border-gray-300 mb-3 mx-auto' />
+            <hr className='lg:w-2/12 w-2/3 border border-gray-300 mb-3 mx-auto' />
             <form
                 onSubmit={handlePlaceService}
-                className='border-2 bg-base-200 w-7/12 mx-auto border-gray-300 rounded shadow-lg p-8'>
+                className='border-2 bg-base-200 lg:w-7/12 lg:mx-auto mx-2 border-gray-300 rounded shadow-lg p-8'>
                 <div>
                     <label className="label">
                         <span className="label-text mb-[-13px] text-xl font-medium">Name</span>

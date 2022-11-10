@@ -59,9 +59,9 @@ const Login = () => {
         <div className="hero mb-12">
             <div className="hero-content flex-col lg:flex-row gap-20 ">
                 <div className="text-center lg:text-left">
-                    <img className='w-[550px]' src={loginImage} alt="" />
+                    <img className='lg:w-[550px] w-[300px]' src={loginImage} alt="" />
                 </div>
-                <div className="card p-8 flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-200 border-2">
+                <div className="card lg:p-8 flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-200 border-2">
                     <div className='text-7xl inline-block w-11/12 mx-auto mb-2'>
                         <FaUserCircle className='w-full'></FaUserCircle>
                     </div>
@@ -109,7 +109,7 @@ const Login = () => {
                         <div className='flex items-center justify-center gap-8 mt-5'>
                             <button
                                 onClick={handleGoogleSignIn}
-                                className='border-2 border-gray-300 hover:bg-gray-300 duration-200 ease-out p-4 rounded-full'>
+                                className='border-2 border-gray-300 hover:bg-gray-300 duration-200 ease-out p-5 rounded-full'>
                                 <FaGoogle></FaGoogle>
                             </button>
                         </div>

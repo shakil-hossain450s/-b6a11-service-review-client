@@ -49,7 +49,7 @@ const Review = ({ foodDetails }) => {
 
     return (
         <div className='my-8'>
-            <form onSubmit={handleReview} className='border-2 p-5 bg-base-100 w-9/12 mx-auto rounded'>
+            <form onSubmit={handleReview} className='border-2 p-5 bg-base-100 lg:w-9/12 lg:mx-auto mx-2 rounded'>
                 {
                     user ?
                         <>
@@ -82,7 +82,7 @@ const Review = ({ foodDetails }) => {
                         </>
                         :
                         <>
-                            <p>For add a review <Link to='/login'>Login</Link> First</p>
+                            <p className='text-2xl font-bold'>For add a review <Link className='text-orange-600 hover:underline' to='/login'>Login</Link> First</p>
                         </>
                 }
             </form>

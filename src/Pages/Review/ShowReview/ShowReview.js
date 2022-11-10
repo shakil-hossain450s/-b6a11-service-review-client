@@ -12,15 +12,24 @@ const ShowReview = () => {
     }, [])
 
     return (
-        <div>
+        <div className=''>
             <h2 className='text-3xl font-medium text-center my-5'>Total Review: {reviews.length}</h2>
             <div className="overflow-x-auto w-full">
-                        {
-                            reviews.map(review => <ShowReviewRow
-                                key={review._id}
-                                review={review}
-                            ></ShowReviewRow>)
-                        }
+                {
+                    reviews.length === 0 ?
+                        <>
+                            <p className='absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]'>No review to show</p>
+                        </>
+                        :
+                        <>
+                            {
+                                reviews.map(review => <ShowReviewRow
+                                    key={review._id}
+                                    review={review}
+                                ></ShowReviewRow>)
+                            }
+                        </>
+                }
             </div>
         </div>
     );

@@ -1,15 +1,22 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { FaLock, FaUserAlt, FaUserCircle } from 'react-icons/fa';
+import { FaGoogle, FaLock, FaUserAlt, FaUserCircle } from 'react-icons/fa';
 import { MdMail } from "react-icons/md";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import registerImage from "../../../assets/login/register.jpg";
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import useSetTitles from '../../../Hook/useSetTitels';
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, providerLogin } = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || "/";
 
     useSetTitles('Register')
 
@@ -38,18 +45,30 @@ const Register = () => {
             .catch(err => {
                 console.log(err)
                 toast.error(err.message)
-        })
+            })
+    }
 
-
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                toast.success("User Login Successfully");
+                navigate(from, { replace: true });
+            })
+            .catch(err => {
+                console.log(err);
+                toast.error(err.message)
+            })
     }
 
     return (
         <div className="hero mb-12">
             <div className="hero-content flex-col lg:flex-row gap-20 ">
                 <div className="text-center lg:text-left">
-                    <img className='w-[550px]' src={registerImage} alt="" />
+                    <img className='lg:w-[550px] w-[300px]' src={registerImage} alt="" />
                 </div>
-                <div className="card p-8 flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-200 border-2">
+                <div className="card lg:p-8 flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-200 border-2">
                     <div className='text-7xl inline-block w-11/12 mx-auto mb-2'>
                         <FaUserCircle className='w-full'></FaUserCircle>
                     </div>
@@ -107,6 +126,13 @@ const Register = () => {
                             <button
                                 className='btn px-8 py-3 text-gray-100 border-2 bg-blue-500 border-blue-500 hover:bg-transparent hover:text-gray-900 hover:border-gray-900'>
                                 <span>Login</span>
+                            </button>
+                        </div>
+                        <div className='flex items-center justify-center gap-8 mt-5'>
+                            <button
+                                onClick={handleGoogleSignIn}
+                                className='border-2 border-gray-300 hover:bg-gray-300 duration-200 ease-out p-4 rounded-full'>
+                                <FaGoogle></FaGoogle>
                             </button>
                         </div>
                     </form>
