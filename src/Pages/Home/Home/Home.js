@@ -2,9 +2,11 @@ import React from 'react';
 import img1 from "../../../assets/HomeImage/home1.jpeg";
 import img2 from "../../../assets/HomeImage/home2.jpeg";
 import img3 from "../../../assets/HomeImage/home3.jpeg";
+import useSetTitles from '../../../Hook/useSetTitels';
 import HomeServices from '../HomeServices/HomeServices';
 
 const Home = () => {
+    useSetTitles('Home')
     return (
         <section>
             <div className="hero lg:flex justify-between gap-20 mt-8 lg:mt-12 mb-40 lg:h-[70vh] px-8 lg:px-20">

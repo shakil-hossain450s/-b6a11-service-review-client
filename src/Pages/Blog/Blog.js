@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import useSetTitles from '../../Hook/useSetTitels';
 import BlogCard from './BlogCard';
 
 const Blog = () => {
     const [blogQuestions, setBlogQuestions] = useState([]);
+    useSetTitles('Blog')
     useEffect(() => {
         fetch('http://localhost:5000/blog')
             .then(res => res.json())

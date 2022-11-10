@@ -5,10 +5,13 @@ import { MdMail } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import registerImage from "../../../assets/login/register.jpg";
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import useSetTitles from '../../../Hook/useSetTitels';
 
 const Register = () => {
 
     const { createUser } = useContext(AuthContext);
+
+    useSetTitles('Register')
 
     const handleSubmit = event => {
         event.preventDefault();

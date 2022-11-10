@@ -92,7 +92,7 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link className="flex items-center gap-2">
+                <Link to='/' className="flex items-center gap-2">
                     <img className='w-14' src={logo} alt="" />
                     <span className='text-xl font-medium'>Home Food</span>
                 </Link>
