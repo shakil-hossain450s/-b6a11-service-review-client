@@ -1,9 +1,11 @@
 import React from 'react';
 import toast from 'react-hot-toast';
 import { FaPlusCircle } from "react-icons/fa";
+import useSetTitles from '../../../Hook/useSetTitels';
 
 const AddService = () => {
 
+    useSetTitles('AddService');
     const handlePlaceService = event => {
         event.preventDefault();
         const form = event.target;

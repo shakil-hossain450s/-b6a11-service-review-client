@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import useSetTitles from '../../../Hook/useSetTitels';
 import ShowReviewRow from './ShowReviewRow';
 
 const ShowReview = () => {
+
+    useSetTitles('All Review')
 
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
